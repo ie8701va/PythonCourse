@@ -1,0 +1,57 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Apr  5 17:34:39 2023
+
+@author: Ieva
+"""
+
+# Guessing game - defining it's function
+
+def guessing_game(n_guesses = 6, largest_number = 100):
+    """
+    Args:
+        n_guesses - maximum number of guesses (int). Defaults to 6.
+        largest_number - largest possible number you should guess. Defaults to 100.
+    Returns:
+            guesses_list - list with all the guesses
+            correct_number - the number to be guessed (int)
+            success - boolean (True or False). A True value would
+            mean that you guessed the number correctly
+    """
+    import random
+    
+    correct_number = random.randint(1, largest_number)
+
+    
+    instruction = f"I am thinking about a number between 1-{largest_number}. Take a guess."
+    too_high = "Sorry, too high. Take another guess."
+    too_low = "Sorry, too low. Take another guess."
+    out_of_guesses = "You could not guess the number within {n_guesses} guesses! Game Over!"
+
+        
+    for trials in range(n_guesses):
+        success = False
+        
+        guesses_list = []
+        print(f"Guesses remaining are {n_guesses - trials}")
+        print(instruction)
+        number_from_user = int(input())
+        guesses_list.append(number_from_user)
+        
+        if correct_number==number_from_user:
+            success = True
+            break
+        
+        elif correct_number>number_from_user:
+            print(too_low)
+        
+        elif correct_number<number_from_user:
+            print(too_high)
+            
+        if trials == n_guesses:
+            print(out_of_guesses)
+    
+    return guesses_list, correct_number, success 
+
+guessing_game()
+
