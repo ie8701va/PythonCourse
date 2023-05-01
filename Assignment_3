@@ -1,0 +1,116 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Apr 11 16:07:03 2023
+
+@author: Ieva
+"""
+import numpy as np
+import pandas as  pd
+import matplotlib.pyplot as plt
+plt.rcParams["font.family"] = "Times New Roman"
+plt.rcParams["font.size"] = "14"
+plt.rcParams["font.weight"] = "bold"
+plt.rcParams["axes.labelweight"] = "bold"
+
+# Task 3.1.
+eye_velocity = np.array(pd.read_csv("C:/Users/Leva/Documents/NewComputer/Master's programme/Python Course/eye_velocity.csv")).flatten() # Importing the data set
+eye_velocity_short = eye_velocity[0:999] # 1st second of Eye_velocity dataframe
+eye_velocity_short_short = eye_velocity[0:99]
+
+fig = plt.figure()
+ax = fig.add_subplot(111)
+
+# Plotting on the axes.
+ax.plot(eye_velocity_short, c = 'r')
+
+ax.axhline(y = np.mean(eye_velocity_short), color='g', linestyle="dashed")
+ax.set_xlabel('Time (ms)', fontname="Times New Roman", fontsize=14, fontweight="bold")
+ax.set_ylabel('Velocity ($^\circ$/s)', fontname="Times New Roman", fontsize=14, fontweight="bold")
+plt.annotate('Average velocity', xy = (600,50), xytext = (700,180),
+             arrowprops=dict(facecolor='black', arrowstyle= "->, head_length = 0.3, head_width = .20", lw=1), fontname="Times New Roman", fontsize=14, fontweight="bold")
+
+plt.annotate()
+plt.show()
+
+# Saving the figure as .png format
+plt.savefig('my_figure.png')
+
+# Plot a histogram of the velocities using 100 bins. 
+
+plt.hist(eye_velocity, bins=100)
+plt.xlabel('Velocity ($^\circ$/s)')
+plt.ylabel('Frequency')
+plt.title('Eye movement velocity')
+plt.show() # Answer - Most of eye movement activity contains the velocity of less than 20 degrees 
+
+
+
+# Assigment 3 part 2 
+
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.image as mpimg
+from PIL import Image
+
+img1 = mpimg.imread('1.png')
+imgplot1 = plt.imshow(img1)
+plt.show()
+
+img2 = Image.open('2.png')
+imgplot2 = plt.imshow(img2)
+plt.show()
+
+img3 = mpimg.imread('3.png')
+imgplot3 = plt.imshow(img3)
+plt.show()
+
+img4 = mpimg.imread('4.png')
+imgplot4 = plt.imshow(img4)
+plt.show()
+
+
+figB, ax = plt.subplots(nrows = 2, ncols = 2)
+figB.tight_layout() # This is added to make a bit more space between the subplots
+ax[0, 0].imshow(img1)
+ax[0, 0].set_title('Image 1')
+
+ax[0, 1].imshow(img2)
+ax[0, 1].set_title('Image 2')
+
+ax[1, 0].imshow(img3)
+ax[1, 0].set_title('Image 3')
+
+ax[1, 1].imshow(img4)
+ax[1, 1].set_title('Image 4')
+
+# Adjusting the rotation and scale of images
+# Putting the puzzle pieces together
+
+import cv2 # I will conduct all the rearrangement with CV2 so opening the images using this package first
+import numpy as np
+cvimg1 = cv2.imread('1.png')
+cvimg1 = np.rot90(cvimg1, 3) # Rotating
+
+cvimg2 = cv2.imread('2.png')
+cvimg2 = cv2.resize(cvimg2, (250,240)) # Resizing
+
+cvimg3 = cv2.imread('3.png')
+cvimg4 = cv2.imread('4.png')
+
+
+cvimg12 = cv2.hconcat([cvimg1, cvimg2]) # Concatenating the first two images horizontally
+cvimg34 = cv2.hconcat([cvimg3, cvimg4]) # Concatenating the 3rd and 4th images horizontally
+cvimgall = cv2.vconcat([cvimg12, cvimg34]) # Concatenating 1 and 2, 3 and 4 images vertically
+
+cv2.imshow('all', cvimgall) # Displaying the whole image
+cv2.waitKey(0)
+cv2.detroyAllWindows()
+
+
+cv2.imwrite(r"C:\Users\Leva\Documents\baboon.jpg", cvimgall)
+from PIL import Image
+
+img_from_jpg_to_pdf = Image.open(r'C:\Users\Leva\Documents\baboon.jpg')
+cvimgall_pdf = img_from_jpg_to_pdf.convert('RGB')
+cvimgall_pdf.save(r'C:\Users\Leva\Documents\baboon.pdf')
+
