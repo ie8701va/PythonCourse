@@ -1,0 +1,77 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Apr 21 10:25:49 2023
+
+@author: Ieva
+"""
+
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Specify the size and color of the background. Use a dictionary
+# zero - black, 1 - white
+background = {"size":np.array([1280, 1024]), "color":0.5}
+
+# Specify the target
+target = {"shape":"^", "size":300, "color":"r"}
+
+# Specify the distractors
+distractor = {"shape":"o","size":300,"color":"b","number_of":10}
+
+# Specify to what folder to write the images. If folder does not exist,
+# then create it
+stimulus_path = os.getcwd() + os.sep + "Stimuli" + os.sep
+if not os.path.exists(stimulus_path):
+    os.makedirs(stimulus_path)
+
+
+    
+
+def create_stimulus(background, target, distractor, stimulusPath): # The function produces targets/distractors with different shapes, sizes, and colors. Positions the items randomly over the background image.
+    # Create a figure and an axis to plot on
+    fig, ax = plt.subplots()
+    
+            
+    # Set color of axis (plot) background
+    ax.set_facecolor((background["color"], background["color"], background["color"]))
+
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["bottom"].set_visible(False)
+    ax.spines["left"].set_visible(False)
+    ax.tick_params(axis='both', which='both', length=0) # these lines were meant to remove the white frame that goes around the figure but I still habe them. Any ideas how to remove it?
+    
+    # Setting up distractor data
+    image_size = background["size"]  # Size of background in pixels
+    nDistractors = distractor["number_of"]  # Number of distractors
+    distractor_size = distractor["size"]
+    distractor_shape = distractor["shape"]
+    distractor_color = distractor["color"]
+    
+    # Generate positions where to put the distractors
+    distractor_xr = np.random.randint(0, image_size[0], nDistractors)
+    distractor_yr = np.random.randint(0, image_size[1], nDistractors)
+    
+    # Setting up Target values
+    target_color = target["color"]
+    target_size = target["size"]
+    target_shape = target["shape"]
+    
+    # Generate positions where to put the target
+    target_xr = np.random.randint(0, image_size[0])
+    target_yr = np.random.randint(0, image_size[1])
+
+    plt.scatter(distractor_xr, distractor_yr, s=distractor_size, c=distractor_color, marker=distractor_shape)
+    plt.scatter(target_xr, target_yr, s=target_size, c=target_color, marker=target_shape)
+    ax.set_xticklabels([])
+    ax.set_yticklabels([])
+    ax.set_xticks([])
+    ax.set_yticks([])
+
+    # Saves the figure with appropriate naming
+    fig.savefig("Target and Distractors".upper(), dpi=100)
+
+
+create_stimulus(background,target, distractor, stimulus_path)
+
