@@ -1,6 +1,6 @@
 # Python Projects by Ieva
 
-This repository contains several Python scripts created as part of various assignments. Each script demonstrates different aspects of Python programming, including working with Numpy arrays, creating a number guessing game, data visualization, and image processing.
+This repository contains a collection of Python scripts developed for various assignments. Each script showcases different aspects of Python programming, including working with Numpy arrays, creating a number guessing game, data visualization, and image processing.
 
 ## Table of Contents
 
@@ -9,19 +9,19 @@ This repository contains several Python scripts created as part of various assig
 - [Task 1C: Multiplication Table Trainer](#task-1c-multiplication-table-trainer)
 - [Task 3: Data Visualization and Image Processing](#task-3-data-visualization-and-image-processing)
 - [Task 4: Visual Stimuli Generation](#task-4-visual-stimuli-generation)
-- [Task 5: Final behavioral data analysis project](#Final-behavioral-data-analysis-project)
+- [Task 5: Final Behavioral Data Analysis Project](#task-5-final-behavioral-data-analysis-project)
 
 ---
 
 ## Task 1A: Numpy Arrays
 
 ### Overview
-This script demonstrates basic operations with Numpy arrays. It includes creating arrays, performing mathematical operations, and filtering elements based on conditions.
+This script demonstrates basic operations with Numpy arrays, including array creation, mathematical operations, and filtering elements based on conditions.
 
 ### Key Features
-- **Array Creation:** Arrays `a` and `b` are created using `numpy`.
+- **Array Creation:** Arrays `a` and `b` are created using Numpy.
 - **Operations:** Compute the size, mean, median, and sum of the arrays. Perform element-wise operations such as addition, subtraction, and modulus.
-- **Odd Number Extraction:** Extract odd numbers from the arrays `a` and `b`.
+- **Odd Number Extraction:** Extract odd numbers from arrays `a` and `b`.
 - **Range Array:** Generate arrays containing all integer values between 1 and 10,000 using different methods.
 
 ### Usage
@@ -36,7 +36,7 @@ This is a simple number guessing game where the user has up to six attempts to g
 
 ### Key Features
 - **Random Number Generation:** The script generates a random number between 1 and 100.
-- **User Interaction:** The user is prompted to guess the number, and feedback is provided whether the guess is too high or too low.
+- **User Interaction:** The user is prompted to guess the number, with feedback provided on whether the guess is too high or too low.
 - **Win/Loss Conditions:** The game informs the user if they guessed the number correctly or if they ran out of attempts.
 
 ### Usage
@@ -95,39 +95,20 @@ Run the script, and the stimuli image will be saved in the `Stimuli` directory.
 
 ---
 
-## Requirements
+## Task 5: Final Behavioral Data Analysis Project
 
-- Python 3.x
-- Numpy
-- Matplotlib
-- Pandas
-- OpenCV
-- PIL
+### Overview
+This script completes data wrangling procedures, visualizes datasets of interest, runs mixed effects models, and performs inferential statistical analyses.
 
-Install the dependencies using:
-```bash
-pip install numpy matplotlib pandas opencv-python pillow
+### Key Features
+- **Data Management:** Handles data loading, preprocessing, and management, including column renaming and condition-based categorization.
+- **Analysis:** Performs various analyses such as repeated measures ANOVA and mixed effects models on different datasets.
+- **Visualization:** Generates plots and visualizations for accuracy, response time, and memory specificity data.
 
----
+### Usage
+Ensure all required libraries are installed before running the script. Update file paths in the script as needed for local data access. Run the script in a Python environment with necessary dependencies.
 
-## Task 5: Final behavioral data analysis project
-
-- **Purpose**: This script completes data wrangling procedures, visualizes separate datasets of interest, runs mixed effects models, and performs inferential statistical analyses.
-- **Functionality**:
-  - **Importing Libraries and Functions**: Loads necessary libraries and defines custom functions for data extraction.
-  - **Raw Data Management**: Handles initial data loading, preprocessing, and management, including column renaming and condition-based categorization.
-  - **Retrieval Data Management**: Processes retrieval data, including handling special cases and creating new dataframes for specific analyses.
-  - **Creating Smaller Datasets**: Generates smaller datasets for focused analyses.
-  - **Association Data Accuracy**: Analyzes and visualizes accuracy of associations data, including performing repeated measures ANOVA.
-  - **Association Data Response Time**: Analyzes and visualizes response times for association data, including performing repeated measures ANOVA.
-  - **Memory Specificity Data (Coarse Memory)**: Analyzes and visualizes coarse memory data, including running mixed effects models and plotting results.
-
-#### Script Usage
-- Ensure all required libraries are installed before running the script.
-- Update file paths in the script as needed for local data access.
-- Run the script in a Python environment with necessary dependencies.
-
-#### Dependencies
+### Dependencies
 - pandas
 - numpy
 - matplotlib
@@ -135,8 +116,8 @@ pip install numpy matplotlib pandas opencv-python pillow
 - seaborn
 - scipy
 
-#### Notes
-- This script performs extensive data wrangling and visualization. It requires the input data to be correctly formatted as specified in the script.
+### Notes
+- This script performs extensive data wrangling and visualization. Ensure the input data is correctly formatted as specified in the script.
 - Results will be saved in specified directories; ensure appropriate permissions and paths are set.
 
 ---
