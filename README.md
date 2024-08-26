@@ -9,6 +9,7 @@ This repository contains several Python scripts created as part of various assig
 - [Task 1C: Multiplication Table Trainer](#task-1c-multiplication-table-trainer)
 - [Task 3: Data Visualization and Image Processing](#task-3-data-visualization-and-image-processing)
 - [Task 4: Visual Stimuli Generation](#task-4-visual-stimuli-generation)
+- [Task 5: Final behavioral data analysis project](#Final-behavioral-data-analysis-project)
 
 ---
 
@@ -106,3 +107,38 @@ Run the script, and the stimuli image will be saved in the `Stimuli` directory.
 Install the dependencies using:
 ```bash
 pip install numpy matplotlib pandas opencv-python pillow
+
+---
+
+## Task 5: Final behavioral data analysis project
+
+- **Purpose**: This script completes data wrangling procedures, visualizes separate datasets of interest, runs mixed effects models, and performs inferential statistical analyses.
+- **Functionality**:
+  - **Importing Libraries and Functions**: Loads necessary libraries and defines custom functions for data extraction.
+  - **Raw Data Management**: Handles initial data loading, preprocessing, and management, including column renaming and condition-based categorization.
+  - **Retrieval Data Management**: Processes retrieval data, including handling special cases and creating new dataframes for specific analyses.
+  - **Creating Smaller Datasets**: Generates smaller datasets for focused analyses.
+  - **Association Data Accuracy**: Analyzes and visualizes accuracy of associations data, including performing repeated measures ANOVA.
+  - **Association Data Response Time**: Analyzes and visualizes response times for association data, including performing repeated measures ANOVA.
+  - **Memory Specificity Data (Coarse Memory)**: Analyzes and visualizes coarse memory data, including running mixed effects models and plotting results.
+
+#### Script Usage
+- Ensure all required libraries are installed before running the script.
+- Update file paths in the script as needed for local data access.
+- Run the script in a Python environment with necessary dependencies.
+
+#### Dependencies
+- pandas
+- numpy
+- matplotlib
+- statsmodels
+- seaborn
+- scipy
+
+#### Notes
+- This script performs extensive data wrangling and visualization. It requires the input data to be correctly formatted as specified in the script.
+- Results will be saved in specified directories; ensure appropriate permissions and paths are set.
+
+---
+
+For further details on any of the scripts, refer to their individual sections or the comments within the scripts themselves.
